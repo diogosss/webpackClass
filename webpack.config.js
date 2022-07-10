@@ -2,8 +2,8 @@ const path = require('path');  //Para trabajar con archivos y rutas de directori
 const HtmlWebpackPlugin = require('html-webpack-plugin'); //para usar HTML en webpack
 const MiniCssExtractPlugin = require('mini-css-extract-plugin'); //para usar minicss
 const CopyPlugin = require('copy-webpack-plugin'); //para usar copywebpack plugin
-const CssMinimizerPlugin = require('css-minimizer-webpack-plugin'); //
-const TerserPLugin = require('terser-webpack-plugin');
+const CssMinimizerPlugin = require('css-minimizer-webpack-plugin'); //hash y optimizacion
+const TerserPLugin = require('terser-webpack-plugin');//hash y optimizacion
 
 module.exports = {
   // Entry nos permite decir el punto de entrada de nuestra aplicación
@@ -21,7 +21,14 @@ module.exports = {
   },
   resolve: {
     // Aqui ponemos las extensiones que tendremos en nuestro proyecto para webpack los lea
-    extensions: [".js"]
+    extensions: [".js"],
+    //Aqui van los paths para los alias
+    alias: {
+      '@utils':path.resolve(__dirname, 'src/utils/'),
+      '@templates':path.resolve(__dirname, 'src/templates/'),
+      '@styles':path.resolve(__dirname, 'src/styles/'),
+      '@images':path.resolve(__dirname, 'src/assets/images/')
+    }
   },
   module: {
     rules: [
@@ -60,7 +67,7 @@ module.exports = {
             name: "[name].[contenthash].[ext]",
             // outputPath => donde se va a guardar en la carpeta final
             outputPath: "./assets/fonts/",
-            publicPath: "./assets/fonts/",
+            publicPath: "../assets/fonts/",
             esModule: false,
           }
         }
