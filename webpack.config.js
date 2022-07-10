@@ -55,22 +55,20 @@ module.exports = {
         type: "asset/resource"
       },
       {
-        test: /\.(woff|woff2)$/,
-        use: {
-          loader: "url-loader",
-          options: {
-            // limit => limite de tamaño
-            limit: 10000,
-            // Mimetype => tipo de dato
-            mimetype: "application/font-woff",
-            // name => nombre de salida
-            name: "[name].[contenthash].[ext]",
-            // outputPath => donde se va a guardar en la carpeta final
-            outputPath: "./assets/fonts/",
-            publicPath: "../assets/fonts/",
-            esModule: false,
-          }
-        }
+        test: /\.(woff|woff2|eot|ttf|otf)$/i,
+				// type: 'asset/resource',
+				use: {
+					loader: 'url-loader', // NOMBRE DEL LOADER
+					options: {
+						limit: false, // O LE PASAMOS UN NUMERO, Habilita o deshabilita la transformación de archivos en base64.
+						mimetype: 'aplication/font-woff', //  nos permite determinar el tipo de archivo que será enlazado o cargado
+						// Los MIME Types (Multipurpose Internet Mail Extensions), son la manera standard de mandar contenido a través de la red.
+						name: '[name].[ext]', // EL NOMBRE INICIAL DEL PROYECTO + SU EXTENSIÓN, PUEDES AGREGARLE [name]hola.[ext] y el output del archivo seria ubuntu-regularhola.woff
+						outputPath: './assets/fonts/', 
+						publicPath: '../assets/fonts/',
+						esModule: false
+					}
+				}
       }
 
     ]
