@@ -4,6 +4,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin'); //para usar min
 const CopyPlugin = require('copy-webpack-plugin'); //para usar copywebpack plugin
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin'); //hash y optimizacion
 const TerserPLugin = require('terser-webpack-plugin');//hash y optimizacion
+const Dotenv = require('dotenv-webpack'); //variables globales
 
 module.exports = {
   // Entry nos permite decir el punto de entrada de nuestra aplicación
@@ -90,6 +91,7 @@ module.exports = {
         }
       ]
     }),
+    new Dotenv(),
   ],
   optimization:{
     minimize: true,
