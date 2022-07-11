@@ -17,7 +17,8 @@ module.exports = {
     // filename le pone el nombre al archivo final
     filename: "[name].[contenthash].js",
     // mover los images a la carpeta assets
-    assetModuleFilename: 'assets/images/[hash][ext][query]'
+    assetModuleFilename: 'assets/images/[hash][ext][query]',
+    clean: true //borrar archivos innecesarios
 
   },
   resolve: {
