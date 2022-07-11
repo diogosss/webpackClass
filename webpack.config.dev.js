@@ -19,6 +19,7 @@ module.exports = {
 
   },
   mode: 'development', //Modo desrrollo
+  watch: true, //que haga un auto build cada que encuentre o vea un cambio
   resolve: {
     // Aqui ponemos las extensiones que tendremos en nuestro proyecto para webpack los lea
     extensions: [".js"],
